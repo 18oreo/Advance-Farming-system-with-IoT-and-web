@@ -1,0 +1,85 @@
+.alerts-page { display: flex; flex-direction: column; gap: clamp(14px,2.5vw,20px); width: 100%; max-width: 100%; }
+
+.page-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.page-header h1 { font-size: clamp(20px,4vw,30px); color: var(--soil); margin-bottom: 4px; }
+.page-header p  { color: var(--text-muted); font-size: 13px; }
+
+.alert-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.stat-box { padding: 14px 12px; text-align: center; border-top: 3px solid transparent; }
+.stat-box.sev-critical { border-top-color: #c0392b; }
+.stat-box.sev-high     { border-top-color: #e67e22; }
+.stat-box.sev-medium   { border-top-color: #f1c40f; }
+.stat-box.sev-low      { border-top-color: #27ae60; }
+.stat-count { font-family: 'Playfair Display', serif; font-size: clamp(24px,4vw,32px); font-weight: 700; }
+.stat-sev { font-size: 10px; color: var(--text-muted); font-weight: 600; letter-spacing: 1px; margin-top: 3px; }
+
+.alert-filter { display: flex; align-items: center; gap: 8px; padding: 12px 16px; flex-wrap: wrap; }
+.filter-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.filter-btn {
+  padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: white; cursor: pointer; font-size: 12px; font-weight: 500;
+  font-family: 'DM Sans', sans-serif; transition: var(--transition); color: var(--text-secondary);
+  min-height: 32px;
+}
+.filter-btn.active { background: var(--leaf); color: white; border-color: var(--leaf); }
+
+.alerts-list { display: flex; flex-direction: column; gap: 10px; }
+
+.alert-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px; border-left: 4px solid transparent; transition: var(--transition);
+}
+.sev-border-critical { border-left-color: #c0392b; }
+.sev-border-high     { border-left-color: #e67e22; }
+.sev-border-medium   { border-left-color: #f1c40f; }
+.sev-border-low      { border-left-color: #27ae60; }
+
+.alert-icon  { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+.alert-body  { flex: 1; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.alert-top   { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.alert-type  { font-size: 13px; font-weight: 600; color: var(--text-primary); text-transform: capitalize; }
+.alert-time  { font-size: 11px; color: var(--text-muted); margin-left: auto; }
+.alert-message { font-size: 13px; color: var(--text-secondary); word-break: break-word; }
+
+.alert-bar   { display: flex; flex-direction: column; gap: 3px; }
+.threshold-bar { height: 4px; background: var(--surface2); border-radius: 2px; overflow: hidden; }
+.threshold-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+.threshold-label { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+.dismiss-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 18px; color: var(--text-muted);
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; transition: var(--transition); flex-shrink: 0; padding: 0;
+}
+.dismiss-btn:hover { background: var(--surface2); color: var(--text-primary); }
+
+.no-alerts {
+  text-align: center; padding: clamp(30px,6vw,60px) 24px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.no-alerts-icon { font-size: 44px; }
+.no-alerts h3 { font-size: 18px; color: var(--soil); }
+.no-alerts p  { color: var(--text-muted); font-size: 13px; max-width: 380px; }
+
+.thresholds-ref { padding: clamp(14px,2.5vw,24px); }
+.thresholds-ref h2 { font-size: clamp(15px,2vw,18px); color: var(--soil); margin-bottom: 14px; }
+.thresh-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(min(100%,190px),1fr)); gap: 10px; }
+.thresh-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; background: var(--surface2); border-radius: var(--radius-sm);
+}
+.thresh-icon  { font-size: 20px; }
+.thresh-name  { font-size: 12px; font-weight: 600; color: var(--text-primary); text-transform: capitalize; }
+.thresh-range { font-size: 10px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+
+@media (max-width: 600px) {
+  .alert-stats { grid-template-columns: repeat(2,1fr); }
+  .alert-time  { margin-left: 0; width: 100%; }
+  .alert-icon  { font-size: 22px; }
+}
+
+@media (max-width: 380px) {
+  .alert-item { padding: 12px 14px; gap: 10px; }
+  .filter-btn { font-size: 11px; padding: 4px 9px; }
+}

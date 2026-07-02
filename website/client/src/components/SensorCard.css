@@ -1,0 +1,45 @@
+.sensor-card {
+  padding: clamp(14px, 2vw, 20px);
+  display: flex; flex-direction: column; gap: 12px;
+  border-left: 4px solid transparent;
+}
+.status-border-good     { border-left-color: #27ae60; }
+.status-border-warning  { border-left-color: #f39c12; }
+.status-border-critical { border-left-color: #c0392b; }
+.status-border-unknown  { border-left-color: var(--sage); }
+
+.sc-header { display: flex; align-items: center; gap: 10px; }
+.sc-icon { font-size: 22px; flex-shrink: 0; }
+.sc-meta { display: flex; flex-direction: column; gap: 3px; }
+.sc-label { font-size: 11px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+
+.sc-value { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; }
+.sc-num { font-family: 'Playfair Display', serif; font-size: clamp(24px,3.5vw,32px); font-weight: 700; color: var(--text-primary); line-height: 1; }
+.sc-unit { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.sc-null { font-size: 18px; color: var(--text-muted); font-style: italic; }
+.sc-trend {
+  margin-left: auto; font-size: 11px; font-weight: 600;
+  padding: 2px 7px; border-radius: 20px;
+}
+.sc-trend.up   { color: #c0392b; background: #fde8e6; }
+.sc-trend.down { color: #27ae60; background: #eaf6ea; }
+.sc-trend.flat { color: var(--text-muted); background: var(--surface2); }
+
+.sc-bar-wrap { display: flex; flex-direction: column; gap: 4px; }
+.sc-bar { height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+.sc-bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.fill-good     { background: linear-gradient(90deg,#27ae60,#2ecc71); }
+.fill-warning  { background: linear-gradient(90deg,#f39c12,#f1c40f); }
+.fill-critical { background: linear-gradient(90deg,#c0392b,#e74c3c); }
+.fill-unknown  { background: var(--sage); }
+.sc-bar-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); }
+
+.sc-stats { display: flex; border-top: 1px solid var(--border); padding-top: 10px; }
+.sc-stat { flex: 1; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+.sc-stat:not(:last-child) { border-right: 1px solid var(--border); }
+.sc-stat span  { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.sc-stat strong { font-size: 13px; font-weight: 600; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; }
+
+@media (max-width: 480px) {
+  .sc-num { font-size: 26px; }
+}
